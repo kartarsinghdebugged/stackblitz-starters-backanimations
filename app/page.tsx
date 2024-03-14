@@ -53,8 +53,8 @@ export default function Home() {
             <div className='home' >
               <BannerSection />
                <ModrenDays />
-              {/*<ClientSliderWrapper />
-              <Testimonials />
+             {/* <ClientSliderWrapper /> */}
+               {/*<Testimonials />
               <JoinUs /> */}
               <Link href={'/test-route'}>Test Route</Link>
             </div>
