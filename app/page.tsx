@@ -8,6 +8,8 @@ import MyComponent from '@/components/smoothScroller';
 import BannerSection from '@/components/banner';
 import ModrenDays from '@/components/modernDays';
 import Link from 'next/link';
+import HomeExplorersAnimation from '@/components/middleAnimation';
+import BottomAnimation from '@/components/bottomAnimation';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -53,6 +55,8 @@ export default function Home() {
             <div className='home' >
               <BannerSection />
                <ModrenDays />
+               <HomeExplorersAnimation />
+               <BottomAnimation />
              {/* <ClientSliderWrapper /> */}
                {/*<Testimonials />
               <JoinUs /> */}
