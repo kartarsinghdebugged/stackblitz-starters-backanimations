@@ -5,77 +5,150 @@ import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
 import SplitText from 'gsap-trial/SplitText'
 import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 import HeroMobile2 from './heoMobile'
+import { useGSAP } from "@gsap/react";
 // import HeroTab2 from '../common/herotab2'
 gsap.config({trialWarn: false});
 const ModrenDays = () => {
   const ModrenTitleRef = useRef(null);
   const ModrenTextRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
-    ScrollTrigger.saveStyles(".intro__title2"); // Save initial styles to avoid FOUC (Flash of Unstyled Content)
+  // useEffect(() => {
+  //   gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
+  //   ScrollTrigger.saveStyles(".intro__title2"); // Save initial styles to avoid FOUC (Flash of Unstyled Content)
 
-    const introTitle2 = ModrenTitleRef.current;
-    const splitText = new SplitText(introTitle2, { type: "lines", linesClass: "intro__title2" });
+  //   const introTitle2 = ModrenTitleRef.current;
+  //   const splitText = new SplitText(introTitle2, { type: "lines", linesClass: "intro__title2" });
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: introTitle2,
-        start: "top 60%", 
-        end: "top 1%",  
-        once: true, 
-        // markers: true,
+  //   let tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: introTitle2,
+  //       start: "top 60%", 
+  //       end: "top 1%",  
+  //       once: true, 
+  //       // markers: true,
         
-      },
-    });
+  //     },
+  //   });
 
-    tl.from(splitText.lines, {
-      opacity: 0,
-      y: 200,
-      x: 0,
-      stagger: .1,
-      duration: .4,
-      ease: "power3.out",
-    });
+  //   tl.from(splitText.lines, {
+  //     opacity: 0,
+  //     y: 200,
+  //     x: 0,
+  //     stagger: .1,
+  //     duration: .4,
+  //     ease: "power3.out",
+  //   });
 
-    // Cleanup function for ScrollTrigger
-    return () => {
-      tl.kill();
-      splitText.revert();
-    };
-  }, []);
-  useEffect(() => {
-    gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
-    ScrollTrigger.saveStyles(".modren-days .intro-text"); 
+  //   // Cleanup function for ScrollTrigger
+  //   return () => {
+  //     tl.kill();
+  //     splitText.revert();
+  //   };
+  // }, []);
 
-    const introText = ModrenTextRef.current;
-    const splitText = new SplitText(introText, { type: "lines", linesClass: "intro-text" });
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: introText,
-        start: "top 60%", 
-        end: "top 100%", 
-        once: true, 
-        // markers: true
-      },
-    });
+  useGSAP(
+    () => {
+      gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
+      ScrollTrigger.saveStyles(".intro__title2"); // Save initial styles to avoid FOUC (Flash of Unstyled Content)
+  
+      const introTitle2 = ModrenTitleRef.current;
+      const splitText = new SplitText(introTitle2, { type: "lines", linesClass: "intro__title2" });
+  
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: introTitle2,
+          start: "top 60%", 
+          end: "top 1%",  
+          once: true, 
+          // markers: true,
+          
+        },
+      });
+  
+      tl.from(splitText.lines, {
+        opacity: 0,
+        y: 200,
+        x: 0,
+        stagger: .1,
+        duration: .4,
+        ease: "power3.out",
+      });
 
-    tl.from(splitText.lines, {
-      opacity: 0,
-      y: 200,
-      x: 0,
-      stagger: .1,
-      duration: .4,
-      ease: "power3.out",
-    });
+    },
+    {
+      scope: ModrenTitleRef,
+    }
+  )
 
-    // Cleanup function for ScrollTrigger
-    return () => {
-      tl.kill();
-      splitText.revert();
-    };
-  }, []);
+
+  // useEffect(() => {
+  //   gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
+  //   ScrollTrigger.saveStyles(".modren-days .intro-text"); 
+
+  //   const introText = ModrenTextRef.current;
+  //   const splitText = new SplitText(introText, { type: "lines", linesClass: "intro-text" });
+
+  //   let tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: introText,
+  //       start: "top 60%", 
+  //       end: "top 100%", 
+  //       once: true, 
+  //       // markers: true
+  //     },
+  //   });
+
+  //   tl.from(splitText.lines, {
+  //     opacity: 0,
+  //     y: 200,
+  //     x: 0,
+  //     stagger: .1,
+  //     duration: .4,
+  //     ease: "power3.out",
+  //   });
+
+  //   // Cleanup function for ScrollTrigger
+  //   return () => {
+  //     tl.kill();
+  //     splitText.revert();
+  //   };
+  // }, []);
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger);
+        ScrollTrigger.saveStyles(".modren-days .intro-text"); 
+    
+        const introText = ModrenTextRef.current;
+        const splitText = new SplitText(introText, { type: "lines", linesClass: "intro-text" });
+    
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: introText,
+            start: "top 60%", 
+            end: "top 100%", 
+            once: true, 
+            // markers: true
+          },
+        });
+    
+        tl.from(splitText.lines, {
+          opacity: 0,
+          y: 200,
+          x: 0,
+          stagger: .1,
+          duration: .4,
+          ease: "power3.out",
+        });
+
+    },
+    {
+      scope: ModrenTextRef,
+    }
+  )
+
+
   return (
     <>
       <section className='modren-days fj-clear fj-container'>

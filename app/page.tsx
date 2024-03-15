@@ -10,6 +10,7 @@ import ModrenDays from '@/components/modernDays';
 import Link from 'next/link';
 import HomeExplorersAnimation from '@/components/middleAnimation';
 import BottomAnimation from '@/components/bottomAnimation';
+import JoinUs from '@/components/movingLine';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -55,6 +56,7 @@ export default function Home() {
             <div className='home' >
               <BannerSection />
                <ModrenDays />
+                <JoinUs />
                <HomeExplorersAnimation />
                <BottomAnimation />
              {/* <ClientSliderWrapper /> */}
